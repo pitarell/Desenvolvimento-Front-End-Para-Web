@@ -1,0 +1,212 @@
+/* ARQUIVO: css/style.css */
+
+/* ====== 1. DESIGN SYSTEM (VARIÁVEIS GLOBAIS) ====== */
+:root {
+    /* Paleta de Cores (Mínimo de 8 cores) */
+    --cor-primaria: #0077b6;     /* Azul forte para links e botões */
+    --cor-secundaria: #00b4d8;   /* Azul claro para detalhes */
+    --cor-destaque: #f77f00;     /* Laranja para 'call to actions' */
+    --cor-sucesso: #5df062;      /* Verde para mensagens de sucesso */
+    
+    --cor-fundo: #e6e5e5;        /* Cinza muito claro para o fundo da página */
+    --cor-surface: #ffffff;     /* Branco para cards e superfícies */
+    --cor-texto-principal: #212529; /* Preto suave para textos */
+    --cor-texto-secundario: #6c757d;/* Cinza para textos de apoio */
+
+    /* Tipografia (Mínimo de 5 tamanhos) */
+    --fonte-principal: 'Arial', sans-serif; 
+    --tamanho-xxg: 3rem;  /* 48px */
+    --tamanho-xg: 2rem;   /* 32px */
+    --tamanho-g: 1.5rem;  /* 24px */
+    --tamanho-m: 1rem;    /* 16px */
+    --tamanho-p: 0.875rem;/* 14px */
+
+    /* Espaçamento Modular */
+    --espaco-p: 8px;
+    --espaco-m: 16px;
+    --espaco-g: 24px;
+    --espaco-xg: 32px;
+    --espaco-xxg: 48px;
+    --espaco-max: 64px;
+}
+
+/* ====== 2. RESET BÁSICO E ESTILOS GLOBAIS ====== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fonte-principal);
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto-principal);
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: var(--cor-primaria);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    color: var(--cor-secundaria);
+    text-decoration: underline;
+}
+/* ARQUIVO: css/style.css (continuação) */
+
+/* ====== 3. LAYOUT PRINCIPAL ====== */
+body {
+    display: grid;
+    grid-template-rows: auto 1fr auto; /* Cabeçalho, conteúdo flexível, rodapé */
+    grid-template-areas: 
+        "header"
+        "main"
+        "footer";
+    min-height: 100vh;
+}
+
+header {
+    grid-area: header;
+    background-color: var(--cor-surface);
+    padding: var(--espaco-m) var(--espaco-xg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+}
+
+main {
+    grid-area: main;
+    padding: var(--espaco-xg);
+    max-width: 960px; /* Limita a largura do conteúdo principal */
+    margin: 0 auto; /* Centraliza o conteúdo */
+}
+
+footer {
+    grid-area: footer;
+    background-color: var(--cor-texto-principal);
+    color: var(--cor-fundo);
+    text-align: center;
+    padding: var(--espaco-g);
+}
+
+/* ====== 4. ESTILOS DE NAVEGAÇÃO ====== */
+header h1 {
+    font-size: var(--tamanho-g);
+    color: var(--cor-primaria);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: var(--espaco-g); /* Espaçamento entre os itens do menu */
+}
+
+nav a {
+    font-size: var(--tamanho-m);
+    padding: var(--espaco-p) var(--espaco-m);
+    border-radius: 4px;
+}
+
+nav a:hover {
+    background-color: var(--cor-fundo);
+    text-decoration: none; /* Remove o sublinhado padrão no hover do menu */
+}
+
+/* ====== 5. ESTILOS DE CONTEÚDO BÁSICO ====== */
+main section {
+    margin-bottom: var(--espaco-xxg);
+}
+
+h2 {
+    font-size: var(--tamanho-xg);
+    color: var(--cor-primaria);
+    margin-bottom: var(--espaco-g);
+    border-bottom: 2px solid var(--cor-secundaria);
+    padding-bottom: var(--espaco-p);
+}
+/* ====== 6. GALERIA DE CARDS (ADOÇÃO) ====== */
+
+.galeria-animais {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--espaco-g);
+}
+
+.card-animal {
+    background-color: var(--cor-surface);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    /* A LINHA QUE VOCÊ PEDIU! */
+    border: 1px solid #ddd; 
+}
+
+.card-animal:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-animal img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.card-conteudo {
+    padding: var(--espaco-g);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-conteudo h3 {
+    font-size: var(--tamanho-g);
+    margin-bottom: var(--espaco-p);
+    color: var(--cor-texto-principal);
+    /* Remove a borda inferior dos H3 dentro dos cards para não poluir */
+    border-bottom: none; 
+}
+
+.card-conteudo ul {
+    list-style: none;
+    margin-bottom: var(--espaco-m);
+    color: var(--cor-texto-secundario);
+}
+
+.card-conteudo p {
+    margin-bottom: var(--espaco-g);
+    flex-grow: 1;
+}
+
+
+/* ====== 7. COMPONENTE BOTÃO ====== */
+.botao {
+    display: block;
+    background-color: var(--cor-destaque);
+    color: var(--cor-surface) !important; /* !important para garantir a cor branca */
+    text-align: center;
+    padding: var(--espaco-m);
+    border-radius: 4px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+    margin-top: auto; /* Garante que o botão alinhe no fundo do card */
+}
+
+.botao:hover {
+    background-color: #d96d00;
+    color: var(--cor-surface) !important;
+    text-decoration: none;
+}
