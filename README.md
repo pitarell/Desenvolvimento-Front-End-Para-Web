@@ -45,8 +45,9 @@ Este projeto foi desenvolvido como atividade acadêmica, aplicando fundamentos d
 
 ├── js/
 │ └── script.js
-└── imagens/
-├── ...
+
+├── imagens/
+
 
 
 
