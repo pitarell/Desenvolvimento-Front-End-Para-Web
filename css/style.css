@@ -1,25 +1,25 @@
 /* ARQUIVO: css/style.css */
+/* VERSÃO FINAL CONSOLIDADA */
 
 /* ====== 1. DESIGN SYSTEM (VARIÁVEIS GLOBAIS) ====== */
 :root {
-    /* Paleta de Cores (Mínimo de 8 cores) */
-    --cor-primaria: #0077b6;     /* Azul forte para links e botões */
-    --cor-secundaria: #00b4d8;   /* Azul claro para detalhes */
-    --cor-destaque: #f77f00;     /* Laranja para 'call to actions' */
-    --cor-sucesso: #5df062;      /* Verde para mensagens de sucesso */
-    
-    --cor-fundo: #e6e5e5;        /* Cinza muito claro para o fundo da página */
-    --cor-surface: #ffffff;     /* Branco para cards e superfícies */
-    --cor-texto-principal: #212529; /* Preto suave para textos */
-    --cor-texto-secundario: #6c757d;/* Cinza para textos de apoio */
+    /* Paleta de Cores */
+    --cor-primaria: #0077b6;
+    --cor-secundaria: #00b4d8;
+    --cor-destaque: #f77f00;
+    --cor-sucesso: #5df062;
+    --cor-fundo: #e6e5e5;
+    --cor-surface: #ffffff;
+    --cor-texto-principal: #212529;
+    --cor-texto-secundario: #6c757d;
 
-    /* Tipografia (Mínimo de 5 tamanhos) */
-    --fonte-principal: 'Arial', sans-serif; 
-    --tamanho-xxg: 3rem;  /* 48px */
-    --tamanho-xg: 2rem;   /* 32px */
-    --tamanho-g: 1.5rem;  /* 24px */
-    --tamanho-m: 1rem;    /* 16px */
-    --tamanho-p: 0.875rem;/* 14px */
+    /* Tipografia */
+    --fonte-principal: Arial, sans-serif;
+    --tamanho-xxg: 3rem;   /* 48px */
+    --tamanho-xg: 2rem;    /* 32px */
+    --tamanho-g: 1.5rem;   /* 24px */
+    --tamanho-m: 1rem;     /* 16px */
+    --tamanho-p: 0.875rem; /* 14px */
 
     /* Espaçamento Modular */
     --espaco-p: 8px;
@@ -49,6 +49,20 @@ img {
     display: block;
 }
 
+/* Centralizar imagens genéricas do conteúdo */
+main section img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Se quiser limitar largura para não estourar */
+main section img {
+  max-width: 200px; /* ajuste conforme o design */
+  width: 100%;
+  height: auto;
+}
+
 a {
     color: var(--cor-primaria);
     text-decoration: none;
@@ -59,12 +73,11 @@ a:hover {
     color: var(--cor-secundaria);
     text-decoration: underline;
 }
-/* ARQUIVO: css/style.css (continuação) */
 
-/* ====== 3. LAYOUT PRINCIPAL ====== */
+/* ====== 3. LAYOUT PRINCIPAL (GRID) ====== */
 body {
     display: grid;
-    grid-template-rows: auto 1fr auto; /* Cabeçalho, conteúdo flexível, rodapé */
+    grid-template-rows: auto 1fr auto;
     grid-template-areas: 
         "header"
         "main"
@@ -85,8 +98,8 @@ header {
 main {
     grid-area: main;
     padding: var(--espaco-xg);
-    max-width: 960px; /* Limita a largura do conteúdo principal */
-    margin: 0 auto; /* Centraliza o conteúdo */
+    max-width: 960px;
+    margin: 0 auto;
 }
 
 footer {
@@ -106,7 +119,7 @@ header h1 {
 nav ul {
     list-style: none;
     display: flex;
-    gap: var(--espaco-g); /* Espaçamento entre os itens do menu */
+    gap: var(--espaco-g);
 }
 
 nav a {
@@ -117,7 +130,7 @@ nav a {
 
 nav a:hover {
     background-color: var(--cor-fundo);
-    text-decoration: none; /* Remove o sublinhado padrão no hover do menu */
+    text-decoration: none;
 }
 
 /* ====== 5. ESTILOS DE CONTEÚDO BÁSICO ====== */
@@ -132,8 +145,8 @@ h2 {
     border-bottom: 2px solid var(--cor-secundaria);
     padding-bottom: var(--espaco-p);
 }
-/* ====== 6. GALERIA DE CARDS (ADOÇÃO) ====== */
 
+/* ====== 6. GALERIA DE CARDS (PÁGINA DE ADOÇÃO) ====== */
 .galeria-animais {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -148,9 +161,7 @@ h2 {
     display: flex;
     flex-direction: column;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    
-    /* A LINHA QUE VOCÊ PEDIU! */
-    border: 1px solid #ddd; 
+    border: 1px solid #ddd;
 }
 
 .card-animal:hover {
@@ -158,12 +169,32 @@ h2 {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
+.card-animal figure
+.card-produto figure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.card-produto figure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Imagem dentro do card */
 .card-animal img {
-    width: 100%;
+    max-width: 100%;
     height: 400px;
     object-fit: cover;
 }
 
+.card-produto img {
+    max-width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
 .card-conteudo {
     padding: var(--espaco-g);
     display: flex;
@@ -175,7 +206,6 @@ h2 {
     font-size: var(--tamanho-g);
     margin-bottom: var(--espaco-p);
     color: var(--cor-texto-principal);
-    /* Remove a borda inferior dos H3 dentro dos cards para não poluir */
     border-bottom: none; 
 }
 
@@ -190,23 +220,109 @@ h2 {
     flex-grow: 1;
 }
 
-
 /* ====== 7. COMPONENTE BOTÃO ====== */
 .botao {
     display: block;
     background-color: var(--cor-destaque);
-    color: var(--cor-surface) !important; /* !important para garantir a cor branca */
+    color: var(--cor-surface) !important;
     text-align: center;
     padding: var(--espaco-m);
     border-radius: 4px;
     font-weight: bold;
     text-transform: uppercase;
     transition: background-color 0.3s ease;
-    margin-top: auto; /* Garante que o botão alinhe no fundo do card */
+    margin-top: auto;
 }
 
 .botao:hover {
     background-color: #d96d00;
     color: var(--cor-surface) !important;
     text-decoration: none;
+}
+
+/* ====== 8. ESTILOS DO FORMULÁRIO DE CADASTRO ====== */
+#imagem-formulario {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: var(--espaco-g);
+}
+
+form {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: var(--cor-surface);
+    padding: var(--espaco-xg);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+fieldset {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: var(--espaco-m);
+    margin-bottom: var(--espaco-g);
+}
+
+legend {
+    font-weight: bold;
+    color: var(--cor-primaria);
+    padding: 0 var(--espaco-p);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"] {
+    width: 100%;
+    padding: var(--espaco-m);
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: var(--tamanho-m);
+    margin-top: var(--espaco-p);
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: var(--espaco-m);
+    background-color: var(--cor-destaque);
+    color: var(--cor-surface);
+    border: none;
+    border-radius: 4px;
+    font-size: var(--tamanho-g);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #d96d00;
+}
+
+.slogan {
+  text-align: center;
+  font-size: 1.5rem;   /* maior que o texto normal */
+  font-weight: bold;
+  color: var(--cor-destaque); /* usa a cor de destaque que você já definiu */
+  margin-top: 16px;
+  font-style: italic;
+}
+/* Histórias: mantém padrão de cards e garante imagem íntegra */
+.historias-grid {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.historia-figure {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fafafa;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 4 / 3;   /* retângulo amplo */
+}
+
+.historia-figure img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;   /* não corta a imagem */
 }

@@ -1,34 +1,69 @@
-Plataforma Digital para ONG Amicão
+# 🐾 ONG Amicão — Plataforma Web
 
-![Status: Em Desenvolvimento](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
-![Versão: 1.0.0](https://img.shields.io/badge/versão-1.0.0-blue)
-![Licença: MIT](https://img.shields.io/badge/licença-MIT-green)
+## 📖 Sobre o Projeto
+A **Amicão** é uma ONG fictícia dedicada ao resgate, acolhimento e adoção responsável de animais em situação de abandono.  
+Este projeto foi desenvolvido como atividade acadêmica, aplicando fundamentos de **HTML5, CSS3 e JavaScript** para construir uma plataforma web completa, responsiva, acessível e otimizada.
 
-Uma plataforma web completa para a **ONG Amicão**, focada em engajamento de voluntários, captação de recursos e, principalmente, na facilitação da adoção de animais que precisam de um lar.
+---
 
-Este projeto está sendo desenvolvido como parte do curso de Ciencias da Computação, aplicando conceitos modernos de desenvolvimento front-end, desde a estrutura semântica com HTML5 até a interatividade com JavaScript.
-
-
-## 💻 Sobre o Projeto
-O objetivo principal é oferecer às ONGs uma presença digital profissional e funcional, permitindo que gerenciem suas informações, projetos, voluntários e doações de forma centralizada e eficiente.
-> A plataforma busca ser uma ponte de esperança entre animais resgatados e pessoas dispostas a oferecer um lar cheio de amor.
-
-
-## ✨ Funcionalidades
-- [x] **Estrutura HTML5 Semântica:** 4 páginas desenvolvidas (`Início`, `Projetos`, `Adoção`, `Cadastro`) com uso correto de tags semânticas.
-- [x] **Design System Básico:** Definição de uma paleta de cores, tipografia e espaçamentos consistentes através de variáveis CSS.
-- [x] **Layout com CSS Grid e Flexbox:** Estrutura principal criada com Grid e alinhamentos internos com Flexbox.
-- [x] **Componente de Cards Responsivos:** Galeria de animais para adoção que se adapta a diferentes tamanhos de tela.
-- [ ] **Formulários Estilizados e Interativos:** Estilização e validação visual do formulário de cadastro.
-- [ ] **Navegação Mobile:** Implementação de menu "hambúrguer" para dispositivos móveis.
-- [ ] **Interatividade com JavaScript:** Validação avançada de formulários e manipulação do DOM.
-- [ ] **Acessibilidade (WCAG 2.1):** Garantir que a plataforma seja acessível para todos os usuários.
+## 🚀 Funcionalidades
+- **Página inicial (index.html):** missão, visão, valores e contato.  
+- **Projetos (projeto.html):** iniciativas como lares temporários, doações e voluntariado.  
+- **Adoção (adote.html):** galeria de animais disponíveis para adoção com cards responsivos.  
+- **Cadastro (cadastro.html):** formulário validado com máscaras e busca automática de endereço (ViaCEP).  
+- **Lojinha (lojinha.html):** produtos para arrecadação, com cards e preços.  
+- **Histórias (historias.html):** depoimentos reais de adoções bem-sucedidas.  
+- **FAQ (faq.html):** perguntas frequentes sobre adoção, doações, voluntariado e cuidados com animais.  
 
 ---
 
 ## 🛠️ Tecnologias Utilizadas
-As seguintes ferramentas e tecnologias foram usadas na construção do projeto:
-* **HTML5:** Para a estrutura e semântica do conteúdo.
-* **CSS3:** Para estilização, layout e design responsivo (utilizando Variáveis, Flexbox e Grid).
-* **JavaScript:** (A ser implementado) Para interatividade e manipulação do DOM.
-* **Git & GitHub:** Para controle de versão e hospedagem do código.
+- **HTML5 semântico:** estrutura limpa e validada (W3C).  
+- **CSS3 moderno:** design system com variáveis, grid de 12 colunas, flexbox, responsividade (5 breakpoints).  
+- **JavaScript (modular):**  
+  - Máscaras de CPF, telefone e CEP.  
+  - Validação extra (maioridade e CPF válido).  
+  - Integração com **API ViaCEP** para preenchimento automático de endereço.  
+- **Acessibilidade (WCAG 2.1 AA):**  
+  - Navegação por teclado.  
+  - Alto contraste e modo escuro (suporte via `prefers-color-scheme`).  
+  - Estrutura com landmarks (`header`, `nav`, `main`, `footer`).  
+
+---
+
+## 📂 Estrutura de Pastas
+ong-amicao/
+├── index.html
+├── projeto.html
+├── adote.html
+├── lojinha.html
+├── cadastro.html
+├── historias.html
+├── faq.html
+├── css/
+│ └── style.css
+├── js/
+│ └── cep-masks.js
+└── imagens/
+├── ...
+
+
+
+---
+
+## 🔒 Acessibilidade e SEO
+- Todas as páginas usam **meta tags otimizadas** e **descrições**.  
+- Imagens possuem `alt`, `width/height` e `loading="lazy"`.  
+- Estrutura semântica garante boa indexação e leitura por leitores de tela.  
+
+---
+
+## 🌐 Deploy
+O projeto está publicado via **GitHub Pages**.  
+> 🔗 [Acesse aqui a versão online](https://github.com/pitarell/Aula-Programa-o-Web)
+
+---
+
+## 📜 Licença
+Este projeto é de uso acadêmico e educativo.  
+Todos os direitos reservados © 2025 — ONG Amicão (fictícia).
