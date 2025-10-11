@@ -32,7 +32,6 @@ Este projeto foi desenvolvido como atividade acadêmica, aplicando fundamentos d
 ---
 
 ## 📂 Estrutura de Pastas
-ong-amicao/
 ├── index.html
 ├── projeto.html
 ├── adote.html
@@ -40,12 +39,15 @@ ong-amicao/
 ├── cadastro.html
 ├── historias.html
 ├── faq.html
+
 ├── css/
 │ └── style.css
+
 ├── js/
-│ └── cep-masks.js
-└── imagens/
-├── ...
+│ └── script.js
+
+├── imagens/
+
 
 
 
