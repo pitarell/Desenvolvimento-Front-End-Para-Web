@@ -1,119 +1,138 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adote</title>
-    <link rel="stylesheet" href="css/style.css"> 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Amicão | Adote um amigo</title>
+  <meta name="description" content="Conheça os animais disponíveis para adoção responsável e encontre seu novo melhor amigo.">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header>
-        <h1>Adote um amigo</h1>
-        <nav>
+  <header>
+    <h1>Adote um amigo</h1>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="menu">☰ Menu</button>
+    <nav id="menu" aria-label="Principal">
       <ul>
         <li><a href="index.html">Início</a></li>
         <li><a href="projeto.html">Projeto</a></li>
-        <li><a href="/adote.html">Adote um amigo</a></li>
+        <li><a href="adote.html" aria-current="page">Adote um amigo</a></li>
         <li><a href="lojinha.html">Lojinha</a></li>
         <li><a href="cadastro.html">Cadastro</a></li>
         <li><a href="historias.html">Histórias</a></li>
-        <li><a href="faq.html" aria-current="page">FAQ</a></li>
-      </ul>      
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
     </nav>
-    </header>
+  </header>
 
-<main>
+  <main>
     <section>
-        <h2>Encontre seu novo melhor amigo!</h2>
-        <p>
-            Estes são alguns dos anjos de quatro patas que estão em nosso abrigo esperando por uma família amorosa. 
-            Conheça-os e apaixone-se. Adotar é um ato de amor que muda duas vidas: a sua e a deles.
-        </p>
+      <h2>Encontre seu novo melhor amigo!</h2>
+      <p>
+        Estes são alguns dos anjos de quatro patas que estão em nosso abrigo esperando por uma família amorosa.
+        Conheça-os e apaixone-se. Adotar é um ato de amor que muda duas vidas: a sua e a deles.
+      </p>
     </section>
 
     <h2>Nossos Animais para Adoção</h2>
     <section class="galeria-animais">
+      <article class="card-animal">
+        <figure>
+          <img src="imagens/Fred.png" alt="Fred, cachorro vira-lata." loading="lazy">
+        </figure>
+        <div class="card-conteudo">
+          <h3>Fred</h3>
+          <ul>
+            <li><strong>Idade:</strong> 1 ano</li>
+            <li><strong>Porte:</strong> Pequeno</li>
+            <li><strong>Personalidade:</strong> Brincalhão e carinhoso</li>
+            <li><strong>Castrado:</strong> Sim</li>
+          </ul>
+          <p>Resgatado das ruas, dócil e ótimo com crianças. Ama bolinhas e cafuné.</p>
+          <a href="cadastro.html" class="botao">Quero conhecer o Fred!</a>
+        </div>
+      </article>
 
-        <article class="card-animal">
-            <figure>
-                <img src="imagens/Fred.png" alt="Foto do Fred, um cachorro vira-lata, lindo.">
-                </figure>
-            <div class="card-conteudo">
-                <h3>Fred</h3>
-                <ul>
-                    <li><strong>Idade:</strong> 1 ano</li>
-                    <li><strong>Porte:</strong> Pequeno</li>
-                    <li><strong>Personalidade:</strong> Brincalhão e carinhoso</li>
-                    <li><strong>Castrado:</strong> Sim</li> </ul>
-                <p>
-                    Fred foi resgatado das ruas e é um cão muito dócil. Adora correr atrás de bolinhas e receber um bom cafuné. 
-                    Se dá bem com outros cachorros e crianças.
-                </p>
-                <a href="cadastro.html" class="botao">Quero conhecer o Fred!</a>
-            </div>
-        </article>
+      <article class="card-animal">
+        <figure>
+          <img src="imagens/manga.jpg" alt="Manga, cachorrinha de porte pequeno." loading="lazy">
+        </figure>
+        <div class="card-conteudo">
+          <h3>Manga</h3>
+          <ul>
+            <li><strong>Idade:</strong> 3 anos</li>
+            <li><strong>Porte:</strong> Pequeno</li>
+            <li><strong>Personalidade:</strong> Calma e independente</li>
+            <li><strong>Castrada:</strong> Sim</li>
+          </ul>
+          <p>Companheira tranquila, ideal para apartamento. Adora um colo e sonecas.</p>
+          <a href="cadastro.html" class="botao">Quero conhecer a Manga!</a>
+        </div>
+      </article>
 
-        <article class="card-animal">
-            <figure>
-                <img src="imagens/manga.jpg" alt="Foto da Manga, nossa fiapinho de manga especial.">
-            </figure>
-            <div class="card-conteudo">
-                <h3>Manga</h3>
-                <ul>
-                    <li><strong>Idade:</strong> 3 anos</li>
-                    <li><strong>Porte:</strong> Pequeno</li>
-                    <li><strong>Personalidade:</strong> Calma e independente</li>
-                    <li><strong>Castrada:</strong> Sim</li> </ul>
-                <p>
-                    Manga é uma cachorrinha muito tranquila que adora um colo e um lugar quentinho para tirar uma soneca. 
-                    É perfeita para quem mora em apartamento, mas adora um passeio.
-                </p>
-                <a href="cadastro.html" class="botao">Quero conhecer a Manga!</a>
-            </div>
-        </article>
+      <article class="card-animal">
+        <figure>
+          <img src="imagens/tofu.jpg" alt="Tofu, filhote claro." loading="lazy">
+        </figure>
+        <div class="card-conteudo">
+          <h3>Tofu</h3>
+          <ul>
+            <li><strong>Idade:</strong> 4 meses</li>
+            <li><strong>Porte:</strong> Ficará Médio</li>
+            <li><strong>Personalidade:</strong> Curioso e cheio de energia</li>
+            <li><strong>Castrado:</strong> Não</li>
+          </ul>
+          <p>Filhote cheio de energia. Precisa de rotina, paciência e muito carinho.</p>
+          <a href="cadastro.html" class="botao">Quero conhecer o Tofu!</a>
+        </div>
+      </article>
 
-        <article class="card-animal">
-            <figure>
-                <img src="imagens/tofu.jpg" alt="Foto do Tofu, um filhote de gato de pelagem clara.">
-            </figure>
-            <div class="card-conteudo">
-                <h3>Tofu</h3>
-                <ul>
-                    <li><strong>Idade:</strong> 4 meses</li>
-                    <li><strong>Porte:</strong> Ficará Médio</li>
-                    <li><strong>Personalidade:</strong> Curioso e cheio de energia</li>
-                    <li><strong>Castrado:</strong> Não</li>
-                </ul>
-                <p>
-                    Este pequeno é o Tofu. Como todo filhote, ele é pura energia e
-                    está descobrindo o mundo. Precisa de uma família com paciência para ensinar e muito amor para dar.
-                </p>
-                <a href="cadastro.html" class="botao">Quero conhecer o Tofu!</a>
-            </div>
-        </article>
-
-        <article class="card-animal">
-            <figure>
-                <img src="imagens/caramelo.jpg" alt="Foto do Capuccino, um clássico caramelo grande.">
-            </figure>
-            <div class="card-conteudo">
-                <h3>Capuccino</h3>
-                <ul>
-                    <li><strong>Idade:</strong> 5 anos</li>
-                    <li><strong>Porte:</strong> Grande</li>
-                    <li><strong>Personalidade:</strong> Tranquilo e companheiro</li>
-                    <li><strong>Castrado:</strong> Não</li>
-                </ul>
-                <p>
-                    Este é o Capuccino. Ele é cheio de amor, energia e está
-                    procurando uma família com crianças. Precisa de uma família cheia de amor para dar.
-                </p>
-                <a href="cadastro.html" class="botao">Quero conhecer o Capuccino!</a>
-            </div>
-        </article>
-
+      <article class="card-animal">
+        <figure>
+          <img src="imagens/caramelo.jpg" alt="Capuccino, cão caramelo de porte grande." loading="lazy">
+        </figure>
+        <div class="card-conteudo">
+          <h3>Capuccino</h3>
+          <ul>
+            <li><strong>Idade:</strong> 5 anos</li>
+            <li><strong>Porte:</strong> Grande</li>
+            <li><strong>Personalidade:</strong> Tranquilo e companheiro</li>
+            <li><strong>Castrado:</strong> Não</li>
+          </ul>
+          <p>Companheiro leal, adora família com crianças e passeios tranquilos.</p>
+          <a href="cadastro.html" class="botao">Quero conhecer o Capuccino!</a>
+        </div>
+      </article>
     </section>
+  </main>
 
-</main>
+  <footer>
+    <p>&copy; 2025 Amicão — Todos os direitos reservados.</p>
+  </footer>
 
+  <!-- JS do menu hambúrguer (responsivo e acessível) -->
+  <script>
+    (function(){
+      var btn  = document.querySelector('.nav-toggle');
+      var menu = document.getElementById('menu');
+      if (!btn || !menu) return;
 
+      btn.addEventListener('click', function () {
+        var aberto = menu.getAttribute('data-open') === 'true';
+        menu.setAttribute('data-open', String(!aberto));
+        btn.setAttribute('aria-expanded', String(!aberto));
+      });
+
+     
+      menu.addEventListener('click', function(e){
+        var link = e.target.closest('a');
+        if (!link) return;
+        if (window.matchMedia('(max-width: 768px)').matches) {
+          menu.setAttribute('data-open', 'false');
+          btn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    })();
+  </script>
+  
+</body>
+</html>
