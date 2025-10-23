@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Amicão | Cadastro de Voluntários e Doadores</title>
+  <meta name="description" content="Cadastro de voluntários e doadores da ONG Amicão.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Cadastro de Voluntários e Doadores</h1>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="menu">Menu</button>
+    <nav id="menu" aria-label="Principal">
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="projeto.html">Projeto</a></li>
+        <li><a href="adote.html">Adote um amigo</a></li>
+        <li><a href="lojinha.html">Lojinha</a></li>
+        <li><a href="cadastro.html" aria-current="page">Cadastro</a></li>
+        <li><a href="historias.html">Histórias</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Junte-se a nós</h2>
+      <p>Preencha o formulário para apoiar a causa.</p>
+      <img id="imagem-formulario" src="imagens/formulario.png" alt="Pessoa preenchendo um formulário" width="150" height="100" loading="lazy">
+
+      <form id="formCadastro" action="#" method="post" novalidate>
+        <fieldset>
+          <legend>Dados Pessoais</legend>
+
+          <label for="nome">Nome Completo*</label>
+          <input id="nome" name="nome" type="text" required minlength="3" autocomplete="name" placeholder="Seu nome completo">
+
+          <label for="email">E-mail*</label>
+          <input id="email" name="email" type="email" required autocomplete="email" placeholder="seu@email.com">
+
+          <label for="cpf">CPF*</label>
+          <input id="cpf" name="cpf" type="text" required inputmode="numeric"
+                 pattern="^\d{3}\.\d{3}\.\d{3}-\d{2}$" placeholder="000.000.000-00" aria-describedby="ajuda-cpf">
+          <small id="ajuda-cpf" class="help">Formato: 000.000.000-00</small>
+
+          <label for="telefone">Telefone*</label>
+          <input id="telefone" name="telefone" type="tel" required inputmode="tel"
+                 pattern="^\(\d{2}\)\s?\d{4,5}-\d{4}$" placeholder="(11) 99999-9999">
+
+          <label for="nascimento">Data de Nascimento*</label>
+          <input id="nascimento" name="nascimento" type="date" required>
+        </fieldset>
+
+        <fieldset>
+          <legend>Endereço</legend>
+
+          <label for="cep">CEP*</label>
+          <input id="cep" name="cep" type="text" required inputmode="numeric"
+                 pattern="^\d{5}-\d{3}$" placeholder="00000-000" autocomplete="postal-code">
+
+          <label for="endereco">Endereço*</label>
+          <input id="endereco" name="endereco" type="text" required autocomplete="address-line1">
+
+          <label for="cidade">Cidade*</label>
+          <input id="cidade" name="cidade" type="text" required autocomplete="address-level2">
+
+          <label for="estado">Estado*</label>
+          <select id="estado" name="estado" required autocomplete="address-level1">
+            <option value="">Selecione</option>
+            <option>AC</option><option>AL</option><option>AP</option><option>AM</option>
+            <option>BA</option><option>CE</option><option>DF</option><option>ES</option>
+            <option>GO</option><option>MA</option><option>MT</option><option>MS</option>
+            <option>MG</option><option>PA</option><option>PB</option><option>PR</option>
+            <option>PE</option><option>PI</option><option>RJ</option><option>RN</option>
+            <option>RS</option><option>RO</option><option>RR</option><option>SC</option>
+            <option>SP</option><option>SE</option><option>TO</option>
+          </select>
+        </fieldset>
+
+        <!-- NOVA SEÇÃO: INTERESSES -->
+        <fieldset>
+          <legend>Interesses</legend>
+          <p>Selecione pelo menos uma opção.</p>
+
+          <div class="opcoes-interesse" role="group" aria-labelledby="legend-interesse">
+            <label>
+              <input type="checkbox" id="intVoluntario" name="interesses" value="voluntario">
+              Quero ser voluntário
+            </label>
+
+            <label>
+              <input type="checkbox" id="intAdotar" name="interesses" value="adotar">
+              Quero adotar
+            </label>
+
+            <label>
+              <input type="checkbox" id="intOutras" name="interesses" value="outras" aria-controls="outras-info" aria-expanded="false">
+              Outras informações
+            </label>
+          </div>
+
+          <label for="outras-info">Descreva outras informações (opcional, obrigatório se marcado acima)</label>
+          <textarea id="outras-info" name="outras_info" rows="4" placeholder="Escreva aqui..." hidden></textarea>
+        </fieldset>
+
+        <button type="submit" class="botao">Enviar Cadastro</button>
+        <div id="alerta" class="alert" role="alert" aria-live="polite" hidden></div>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Amicão — Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- JS unificado: menu + máscaras/validações -->
+  <script>
+    (function(){
+      /* ===== Menu hambúrguer ===== */
+      var btn  = document.querySelector('.nav-toggle');
+      var menu = document.getElementById('menu');
+      if (btn && menu){
+        // estado inicial
+        menu.setAttribute('data-open','false');
+        btn.setAttribute('aria-expanded','false');
+
+        btn.addEventListener('click', function(){
+          var aberto = menu.getAttribute('data-open') === 'true';
+          menu.setAttribute('data-open', String(!aberto));
+          btn.setAttribute('aria-expanded', String(!aberto));
+        });
+        menu.addEventListener('click', function(e){
+          var link = e.target.closest('a');
+          if (!link) return;
+          if (window.matchMedia('(max-width: 768px)').matches) {
+            menu.setAttribute('data-open','false');
+            btn.setAttribute('aria-expanded','false');
+          }
+        });
+        document.addEventListener('keydown', function(e){
+          if (e.key === 'Escape' && menu.getAttribute('data-open') === 'true') {
+            menu.setAttribute('data-open','false');
+            btn.setAttribute('aria-expanded','false');
+          }
+        });
+      }
+
+      /* ===== Formulário (máscaras, ViaCEP e validações) ===== */
+      var form      = document.getElementById('formCadastro');
+      var alerta    = document.getElementById('alerta');
+      var cepInput  = document.getElementById('cep');
+      var endInput  = document.getElementById('endereco');
+      var cidInput  = document.getElementById('cidade');
+      var estInput  = document.getElementById('estado');
+      var cpfInput  = document.getElementById('cpf');
+      var telInput  = document.getElementById('telefone');
+      var nascInput = document.getElementById('nascimento');
+
+      // NOVOS ELEMENTOS - Interesses
+      var chkVol     = document.getElementById('intVoluntario');
+      var chkAdotar  = document.getElementById('intAdotar');
+      var chkOutras  = document.getElementById('intOutras');
+      var outrasBox  = document.getElementById('outras-info');
+
+      function setAlert(msg){
+        if (!alerta) return;
+        alerta.textContent = msg || '';
+        alerta.hidden = !msg;
+      }
+
+      async function buscarEndereco(cepLimpo){
+        try{
+          var res = await fetch('https://viacep.com.br/ws/' + cepLimpo + '/json/');
+          var data = await res.json();
+          if (data.erro) throw new Error('CEP não encontrado');
+          if (endInput) endInput.value = data.logradouro || '';
+          if (cidInput) cidInput.value = data.localidade || '';
+          if (estInput) estInput.value = data.uf || '';
+          setAlert('');
+        }catch(err){
+          if (endInput) endInput.value = '';
+          if (cidInput) cidInput.value = '';
+          if (estInput) estInput.value = '';
+          setAlert('CEP inválido ou não encontrado.');
+          console.error('ViaCEP:', err);
+        }
+      }
+
+      if (cepInput){
+        // máscara CEP
+        cepInput.addEventListener('input', function(e){
+          var v = e.target.value.replace(/\D/g,'').slice(0,8);
+          if (v.length > 5) v = v.slice(0,5) + '-' + v.slice(5);
+          e.target.value = v;
+        });
+        // busca ViaCEP
+        cepInput.addEventListener('blur', function(){
+          var v = cepInput.value.replace(/\D/g,'');
+          if (v.length === 8) buscarEndereco(v);
+        });
+      }
+
+      if (cpfInput){
+        // máscara CPF
+        cpfInput.addEventListener('input', function(e){
+          var v = e.target.value.replace(/\D/g,'').slice(0,11);
+          var r = '';
+          if (v.length>0) r = v.slice(0,3);
+          if (v.length>3) r += '.' + v.slice(3,6);
+          if (v.length>6) r += '.' + v.slice(6,9);
+          if (v.length>9) r += '-' + v.slice(9,11);
+          e.target.value = r;
+        });
+      }
+
+      if (telInput){
+        // máscara telefone
+        telInput.addEventListener('input', function(e){
+          var v = e.target.value.replace(/\D/g,'').slice(0,11);
+          var r = '';
+          if (v.length>0) r = '(' + v.slice(0,2);
+          if (v.length>2) r += ') ' + v.slice(2,7);
+          if (v.length>7) r += '-' + v.slice(7,11);
+          e.target.value = r;
+        });
+      }
+
+      function maiorDe18(dateStr){
+        var d = new Date(dateStr);
+        if (isNaN(d.getTime())) return false;
+        var hoje = new Date();
+        var idade = hoje.getFullYear() - d.getFullYear();
+        var m = hoje.getMonth() - d.getMonth();
+        if (m < 0 || (m === 0 && hoje.getDate() < d.getDate())) idade--;
+        return idade >= 18;
+      }
+
+      function validaCPF(value){
+        var v = (value || '').replace(/\D/g,'');
+        if (v.length !== 11 || /^(\d)\1+$/.test(v)) return false;
+        var s=0, d, i;
+        for (i=0;i<9;i++) s += parseInt(v[i],10)*(10-i);
+        d = 11 - (s%11); if (d>9) d=0; if (d !== parseInt(v[9],10)) return false;
+        s=0;
+        for (i=0;i<10;i++) s += parseInt(v[i],10)*(11-i);
+        d = 11 - (s%11); if (d>9) d=0;
+        return d === parseInt(v[10],10);
+      }
+
+      // Comportamento "Outras informações"
+      if (chkOutras && outrasBox){
+        chkOutras.addEventListener('change', function(){
+          var ativo = chkOutras.checked;
+          outrasBox.hidden   = !ativo;
+          outrasBox.required = ativo;
+          chkOutras.setAttribute('aria-expanded', String(ativo));
+          if (ativo) outrasBox.focus();
+        });
+      }
+
+      if (form){
+        form.addEventListener('submit', function(e){
+          setAlert('');
+          var erros = [];
+
+          // Interesses
+          var marcouInteresse = (chkVol && chkVol.checked) || (chkAdotar && chkAdotar.checked) || (chkOutras && chkOutras.checked);
+          if (!marcouInteresse) {
+            erros.push('Selecione pelo menos um interesse.');
+          }
+          if (chkOutras && chkOutras.checked){
+            var txt = (outrasBox && outrasBox.value ? outrasBox.value.trim() : '');
+            if (txt.length < 10){
+              erros.push('Descreva as outras informações (mínimo de 10 caracteres).');
+            }
+          }
+
+          // Outras validações
+          if (nascInput && !maiorDe18(nascInput.value)) erros.push('Idade mínima: 18 anos.');
+          if (cpfInput && !validaCPF(cpfInput.value)) erros.push('CPF inválido.');
+          if (telInput && !/^\(\d{2}\)\s?\d{4,5}-\d{4}$/.test(telInput.value)) erros.push('Telefone inválido.');
+          if (cepInput && !/^\d{5}-\d{3}$/.test(cepInput.value)) erros.push('CEP inválido.');
+          if (estInput && !estInput.value) erros.push('Selecione o estado.');
+
+          if (erros.length){
+            e.preventDefault();
+            setAlert(erros.join(' '));
+            var alvo = form.querySelector(':invalid') || outrasBox || cpfInput || cepInput || telInput;
+            if (alvo && typeof alvo.focus === 'function') alvo.focus();
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
