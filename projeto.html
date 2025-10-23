@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossos Projetos</title>
+    <link rel="stylesheet" href="css/style.css"> 
+</head>
+<body>
+<header>
+  <h1>Nossos Projetos</h1>
+  <button class="nav-toggle" aria-expanded="false" aria-controls="menu">☰ Menu</button>
+  <nav id="menu" aria-label="Principal">
+    <ul>
+      <li><a href="index.html">Início</a></li>
+      <li><a href="projeto.html" aria-current="page">Projeto</a></li>
+      <li><a href="adote.html">Adote um amigo</a></li>
+      <li><a href="lojinha.html">Lojinha</a></li>
+      <li><a href="cadastro.html">Cadastro</a></li>
+      <li><a href="historias.html">Histórias</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+    <main>
+        <section>
+            <h2>Projeto "Lar Temporário, Amor Permanente"</h2>
+            <p>
+                Nosso principal projeto visa encontrar lares temporários para animais resgatados
+                enquanto eles aguardam uma adoção definitiva. Cuidamos de sua saúde, alimentação
+                e socialização.
+            </p>
+            <img src="imagens/casinha.jpg" alt="Cachorro feliz em um lar temporário."width="200" height="200">
+        </section>
+
+        <section>
+            <h2>Projeto "Voluntário do Bem"</h2>
+            <p>
+                O seu tempo e carinho são o presente mais valioso que nossos animais podem receber.
+                Os voluntários nos ajudam com:
+            </p>
+            <ul>
+                <li>Passeios e socialização com os animais.</li>
+                <li>Ajuda na limpeza e organização do abrigo.</li>
+                <li>Participação em feiras de adoção.</li>
+                <li>Transporte de animais para consultas veterinárias.</li>
+            </ul>
+            <p>
+                Interessado? O primeiro passo é se cadastrar em nossa plataforma!
+                <a href="cadastro.html">Clique aqui para ir para a página de cadastro.</a>
+            </p>
+        </section>
+
+        <section>
+    <h2>Projeto "Lar Definitivo, Amor Infinito"</h2>
+    <p>
+      Este projeto é dedicado a garantir que cada animal resgatado encontre não apenas um abrigo temporário, 
+      mas sim um <strong>lar definitivo</strong>, cheio de cuidado e amor. 
+      Nossa equipe realiza entrevistas com famílias, acompanhamento pós-adoção e campanhas educativas sobre 
+      posse responsável.
+    </p>
+    <p>
+      Acreditamos que cada adoção responsável transforma duas vidas: a do animal e a da família que o acolhe.
+    </p>
+    <img src="imagens/familiaadocao.jpg" alt="Família feliz adotando um cachorro resgatado." width="300" height="200">
+  </section>
+
+
+        <section>
+            <h2>Como Doar</h2>
+            <p>
+                Sua doação é fundamental para mantermos nosso trabalho. Os recursos são utilizados
+                para comprar ração, medicamentos, pagar por tratamentos veterinários e manter a
+                estrutura do nosso abrigo.
+            </p>
+            <p>
+                Você pode doar através de PIX, transferência bancária ou cartão de crédito.
+                Toda contribuição faz a diferença!
+            </p>
+            <p><strong>Chave PIX (CNPJ):</strong> 12.345.678/0001-99</p>
+            <img src="imagens/doacao.jpg" alt="Pote de ração cheio simbolizando uma doação."width="300" height="200">
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Amicão - Todos pos direitos reservados.</p>
+    </footer>
+
+<script>
+  (function(){
+    var btn  = document.querySelector('.nav-toggle');
+    var menu = document.getElementById('menu');
+    if (!btn || !menu) return;
+
+    btn.addEventListener('click', function () {
+      var aberto = menu.getAttribute('data-open') === 'true';
+      menu.setAttribute('data-open', String(!aberto));
+      btn.setAttribute('aria-expanded', String(!aberto));
+    });
+
+    // Fecha automaticamente ao clicar em um link (apenas mobile)
+    menu.addEventListener('click', function(e){
+      var link = e.target.closest('a');
+      if (!link) return;
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        menu.setAttribute('data-open', 'false');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  })();
+</script>
+
+</body>
+</html>
