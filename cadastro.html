@@ -80,30 +80,22 @@
         </fieldset>
 
         <!-- NOVA SEÇÃO: INTERESSES -->
-        <fieldset>
-          <legend>Interesses</legend>
-          <p>Selecione pelo menos uma opção.</p>
+      <fieldset>
+        <legend id="legend-interesse">Interesses</legend>
+        <p>Selecione pelo menos uma opção.</p>
 
-          <div class="opcoes-interesse" role="group" aria-labelledby="legend-interesse">
-            <label>
-              <input type="checkbox" id="intVoluntario" name="interesses" value="voluntario">
-              Quero ser voluntário
-            </label>
+        <div class="opcoes-interesse" role="group" aria-labelledby="legend-interesse">
+          <label><input type="checkbox" id="intVoluntario" name="interesses" value="voluntario"> Quero ser voluntário</label>
+          <label><input type="checkbox" id="intAdotar" name="interesses" value="adotar"> Quero adotar</label>
+          <label>
+            <input type="checkbox" id="intOutras" name="interesses" value="outras" aria-controls="outras-info" aria-expanded="false">
+            Outras informações
+          </label>
+        </div>
 
-            <label>
-              <input type="checkbox" id="intAdotar" name="interesses" value="adotar">
-              Quero adotar
-            </label>
-
-            <label>
-              <input type="checkbox" id="intOutras" name="interesses" value="outras" aria-controls="outras-info" aria-expanded="false">
-              Outras informações
-            </label>
-          </div>
-
-          <label for="outras-info">Descreva outras informações (opcional, obrigatório se marcado acima)</label>
-          <textarea id="outras-info" name="outras_info" rows="4" placeholder="Escreva aqui..." hidden></textarea>
-        </fieldset>
+        <label for="outras-info">Descreva outras informações (opcional, obrigatório se marcado acima)</label>
+        <textarea id="outras-info" name="outras_info" rows="4" hidden></textarea>
+      </fieldset>
 
         <button type="submit" class="botao">Enviar Cadastro</button>
         <div id="alerta" class="alert" role="alert" aria-live="polite" hidden></div>
